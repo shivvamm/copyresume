@@ -1,19 +1,21 @@
-import templateLogo from './assets/template4.svg'
-import uploadLogo from './assets/upload2.svg'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Home, Template, Uplaoad } from "./components/index"
 import './App.css'
 
 function App() {
   return (
     <>
-      <div className='flex items-center justify-center h-screen'>
-        <div className="">
-          <img src={uploadLogo} className="logo pl-12 h-44	" alt="Upload and edit" />
-          <p className="text-lg text-left pl-12 font-semibold">Upload and Edit</p>
-        </div>
-        <div className=''>
-          <img src={templateLogo} className="logo pl-14 h-44" alt="Create from template" />
-          <p className="text-lg text-right  font-semibold">Create from Template</p>
-        </div>
+      <header className="w-full flex justify-between items-center bg-black sm:px-8 px-4 py-4 border-b border-b-[#e6ebf4]">
+        <p>Copyresume</p>
+      </header>
+      <div className='flex items-center justify-center h-auto'>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/template" element={<Template />} />
+            <Route path="/upload" element={<Uplaoad />} />
+          </Routes>
+        </BrowserRouter>
       </div>
     </>
   )
